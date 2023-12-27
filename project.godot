@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Rumble"
+config/name="Monster Land"
 run/main_scene="res://world/Arena.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
@@ -29,3 +29,4 @@ project/assembly_name="Rumble"
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
