@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5x5usww81ujm"]
 
 [ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="1_8tcxo"]
-[ext_resource type="Script" path="res://src/Character.cs" id="1_jsoyq"]
+[ext_resource type="Script" path="res://src/simulation/characters/Character.cs" id="1_vv8h0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_138y3"]
 radius = 15.0
@@ -9,7 +9,7 @@ radius = 15.0
 [node name="Character" type="CharacterBody2D"]
 platform_on_leave = 2
 platform_floor_layers = 4294901760
-script = ExtResource("1_jsoyq")
+script = ExtResource("1_vv8h0")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_8tcxo")

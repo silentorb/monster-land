@@ -1,6 +1,6 @@
 using Godot;
 
-namespace MonsterLand;
+namespace MonsterLand.simulation.characters;
 
 [Tool]
 public partial class CharacterDefinition : Resource {

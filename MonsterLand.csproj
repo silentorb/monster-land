@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>MonsterLand</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\simulation\combat\" />
+  </ItemGroup>
 </Project>

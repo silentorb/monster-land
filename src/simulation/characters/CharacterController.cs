@@ -1,9 +1,9 @@
 using Godot;
 
-namespace MonsterLand;
+namespace MonsterLand.simulation.characters;
 
 public partial class CharacterController : Node {
-  Character character;
+  public Character character;
   protected Vector2 direction;
 
   public override void _Ready() {
