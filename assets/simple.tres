@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://ded5w5peaw5ow"]
+
+[ext_resource type="Texture2D" uid="uid://ca30nj6yotkbp" path="res://assets/simple.png" id="1_0ntx0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npfnn"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p3h5"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkgdk"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y418p"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxag6"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ktof"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsxd4"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1s41"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocr5f"]
+atlas = ExtResource("1_0ntx0")
+region = Rect2(48, 112, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npfnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p3h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkgdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y418p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxag6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ktof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsxd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1s41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocr5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
