@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dmoxhi2ujh173"]
+
+[ext_resource type="Script" path="res://src/CharacterDefinition.cs" id="1_um4kt"]
+
+[resource]
+script = ExtResource("1_um4kt")
+sprite = 108
+speed = 100.0

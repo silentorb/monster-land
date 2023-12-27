@@ -1,4 +1,3 @@
-class_name CharacterDefinition
 extends Resource
 
 @export var accessories = []
