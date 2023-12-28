@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl84d441omab1"]
+
+[ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="1_ro3mu"]
+[ext_resource type="Script" path="res://src/simulation/combat/Missile.cs" id="1_usvwa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48kem"]
+
+[node name="Missile" type="Area2D"]
+script = ExtResource("1_usvwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_48kem")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_ro3mu")
+frame = 643

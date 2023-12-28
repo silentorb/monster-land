@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using Godot;
+using MonsterLand.simulation.ai;
 
-namespace MonsterLand; 
+namespace MonsterLand;
 
 public partial class AiController : simulation.characters.CharacterController {
   private float directionTimer = 1;
   public float directionDuration = 1;
+  private float actionChance = 0;
 
   void newDirection() {
     var angle = GD.Randf() * Mathf.Pi * 2;
@@ -32,16 +34,25 @@ public partial class AiController : simulation.characters.CharacterController {
       var target = AiQuery.getNearestEnemy(character);
       if (target != null) {
         var activation = new AccessoryActivation {
-          direction = character.Transform.Origin.DirectionTo(target.Transform.Origin) 
+          actor = character,
+          direction = character.Transform.Origin.DirectionTo(target.Transform.Origin)
         };
-        accessory.tryActivate(activation);
+        accessory.tryActivate(ref activation);
       }
     }
   }
 
   void updateLogic(float delta) {
+    if (!character.isAlive())
+      return;
+    
     updateDirection(delta);
-    attack();
+
+    actionChance += delta;
+    if (GD.Randf() < actionChance) {
+      attack();
+      actionChance = 0;
+    }
   }
 
   public override void _PhysicsProcess(double delta) {

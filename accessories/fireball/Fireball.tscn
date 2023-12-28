@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://da6lj1daqk25d"]
+
+[ext_resource type="PackedScene" uid="uid://dl84d441omab1" path="res://accessories/Missile.tscn" id="1_niq3f"]
+
+[node name="Missile" instance=ExtResource("1_niq3f")]

@@ -10,8 +10,8 @@ public partial class CharacterTool : Node {
     if (Engine.IsEditorHint()) {
       GetParent().GetNode<AnimatedSprite2D>("Sprite");
       var j = GetParent();
-      var k = GetParent() as MonsterLand.Character;
-      (GetParent() as Character)?.initializeSprite();
+      var k = GetParent() as simulation.characters.Character;
+      (GetParent() as simulation.characters.Character)?.initializeSprite();
     }
     else {
       QueueFree();

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Godot;
 
-namespace MonsterLand;
+namespace MonsterLand.simulation.general;
 
 public partial class GameState : Node {
   public static GameState instance { get; private set; }
-  public readonly List<Character> characters = new();
+  public readonly List<characters.Character> characters = new();
 
   public override void _Ready() {
     base._Ready();

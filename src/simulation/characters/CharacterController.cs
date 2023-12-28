@@ -13,7 +13,7 @@ public partial class CharacterController : Node {
 
   public override void _PhysicsProcess(double delta) {
     base._PhysicsProcess(delta);
-    if (character == null)
+    if (character == null || !character.isAlive())
       return;
 
     if (direction.IsZeroApprox()) {

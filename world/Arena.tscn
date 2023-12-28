@@ -17,6 +17,7 @@ layer_0/tile_data = PackedInt32Array(65536, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 
 [node name="Player" parent="." instance=ExtResource("2_46jno")]
 position = Vector2(353, 201)
 definition = ExtResource("5_id6hw")
+faction = 0
 
 [node name="PlayerController" type="Node" parent="Player"]
 script = ExtResource("4_mgkmc")
