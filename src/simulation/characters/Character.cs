@@ -80,4 +80,12 @@ public partial class Character : CharacterBody2D, Damageable {
       die();
     }
   }
+
+  public void tryUseAccessoryInDirection(Accessory accessory, Vector2 direction) {
+    var activation = new AccessoryActivation {
+      actor = this,
+      direction = direction
+    };
+    accessory.tryActivate(ref activation);
+  }
 }

@@ -34,11 +34,8 @@ public partial class AiController : CharacterController {
     if (accessory != null) {
       var target = AiQuery.getNearestEnemy(character);
       if (target != null) {
-        var activation = new AccessoryActivation {
-          actor = character,
-          direction = character.Transform.Origin.DirectionTo(target.Transform.Origin)
-        };
-        accessory.tryActivate(ref activation);
+        var actionDirection = character.Transform.Origin.DirectionTo(target.Transform.Origin);
+        character.tryUseAccessoryInDirection(accessory, actionDirection);
       }
     }
   }
@@ -46,7 +43,7 @@ public partial class AiController : CharacterController {
   void updateLogic(float delta) {
     if (!character.isAlive())
       return;
-    
+
     updateDirection(delta);
 
     actionChance += delta;

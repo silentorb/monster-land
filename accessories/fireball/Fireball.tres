@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="AccessoryDefinition" load_steps=5 format=3 uid="uid://bsk5c8ql27ujb"]
 
-[ext_resource type="Script" path="res://src/simulation/accessories/AttackEffect.cs" id="1_1ubog"]
+[ext_resource type="Script" path="res://src/simulation/combat/AttackEffect.cs" id="1_emxi5"]
 [ext_resource type="Script" path="res://src/simulation/accessories/AccessoryDefinition.cs" id="1_qas57"]
 [ext_resource type="PackedScene" uid="uid://da6lj1daqk25d" path="res://accessories/fireball/Fireball.tscn" id="2_x13gy"]
 
 [sub_resource type="Resource" id="Resource_n27pa"]
-script = ExtResource("1_1ubog")
+script = ExtResource("1_emxi5")
 damageAmount = 60
 damageType = 1
 spawnable = ExtResource("2_x13gy")
 missileSpeed = 200.0
+range = 128.0
 
 [resource]
 script = ExtResource("1_qas57")
