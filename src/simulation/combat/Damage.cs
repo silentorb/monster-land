@@ -1,6 +1,6 @@
-﻿using MonsterLand.simulation.characters;
+﻿using monsterland.simulation.characters;
 
-namespace MonsterLand.simulation.combat; 
+namespace monsterland.simulation.combat; 
 
 public struct Damage {
   public Character source;

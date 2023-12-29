@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace MonsterLand.simulation.ai;
+namespace monsterland.simulation.ai;
 
 public static class AiQuery {
   public static characters.Character getNearestEnemy(characters.Character character) {

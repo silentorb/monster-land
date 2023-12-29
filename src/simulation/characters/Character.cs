@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Godot;
-using MonsterLand.simulation.accessories;
-using MonsterLand.simulation.combat;
-using MonsterLand.simulation.general;
+using monsterland.simulation.accessories;
+using monsterland.simulation.combat;
+using monsterland.simulation.general;
 
-namespace MonsterLand.simulation.characters;
+namespace monsterland.simulation.characters;
 
 [Tool]
 public partial class Character : CharacterBody2D, Damageable {

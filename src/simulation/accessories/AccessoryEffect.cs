@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace MonsterLand;
+namespace monsterland.simulation.accessories; 
 
 public partial class AccessoryEffect : Resource {
   

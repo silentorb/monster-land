@@ -4,6 +4,9 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
-    <RootNamespace>MonsterLand</RootNamespace>
+    <RootNamespace>monsterland</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="entities\player\" />
+  </ItemGroup>
 </Project>

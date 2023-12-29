@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace MonsterLand.simulation.accessories; 
+namespace monsterland.simulation.accessories; 
 
 [GlobalClass]
 [Tool]

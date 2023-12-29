@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cckq1xmxh4pbr"]
+
+[ext_resource type="Script" path="res://src/client/ui/views/NewPlayerView.cs" id="1_w6kps"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2rro"]
+bg_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="NewPlayerView" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2rro")
+script = ExtResource("1_w6kps")
+
+[node name="active_panel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="active_panel"]
+layout_mode = 2
+
+[node name="player_name" type="Label" parent="active_panel/VBox"]
+layout_mode = 2
+text = "Player #"
+horizontal_alignment = 1
+
+[node name="player_status" type="Label" parent="active_panel/VBox"]
+layout_mode = 2
+text = "Not ready"
+horizontal_alignment = 1
+
+[node name="inactive_panel" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="inactive_panel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="inactive_panel/VBox"]
+layout_mode = 2
+text = "Press (A) to Join"
+horizontal_alignment = 1

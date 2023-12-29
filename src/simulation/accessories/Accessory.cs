@@ -1,7 +1,7 @@
 ﻿using System;
 using Godot;
 
-namespace MonsterLand.simulation.accessories; 
+namespace monsterland.simulation.accessories; 
 
 public partial class Accessory : GodotObject {
   public AccessoryDefinition definition;

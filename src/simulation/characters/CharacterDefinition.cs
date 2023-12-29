@@ -1,7 +1,7 @@
 using Godot;
-using MonsterLand.simulation.accessories;
+using monsterland.simulation.accessories;
 
-namespace MonsterLand.simulation.characters;
+namespace monsterland.simulation.characters;
 
 [Tool]
 [GlobalClass]

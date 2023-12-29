@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5x5usww81ujm" path="res://framework/Character.tscn" id="2_46jno"]
 [ext_resource type="TileSet" uid="uid://c5x7u877hldg" path="res://world/world_tiles.tres" id="2_vey3k"]
-[ext_resource type="Script" path="res://src/client/PlayerController.cs" id="4_mgkmc"]
+[ext_resource type="Script" path="res://src/client/input/PlayerController.cs" id="4_mgkmc"]
 [ext_resource type="Script" path="res://src/simulation/ai/AiController.cs" id="5_avg68"]
 [ext_resource type="Resource" uid="uid://dmoxhi2ujh173" path="res://entities/characters/TestMonster2.tres" id="5_id6hw"]
 

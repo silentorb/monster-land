@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace MonsterLand; 
+namespace monsterland.simulation.accessories; 
 
 public struct AccessoryActivation {
   public simulation.characters.Character actor = null;

@@ -1,6 +1,6 @@
 using Godot;
 
-namespace MonsterLand.simulation.characters;
+namespace monsterland.simulation.characters;
 
 public partial class CharacterController : Node {
   public Character character;

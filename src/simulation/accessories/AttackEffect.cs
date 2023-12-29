@@ -1,7 +1,7 @@
 ﻿using Godot;
-using MonsterLand.simulation.combat;
+using monsterland.simulation.combat;
 
-namespace MonsterLand.simulation.accessories;
+namespace monsterland.simulation.accessories;
 
 [GlobalClass]
 public partial class AttackEffect : AccessoryEffect {

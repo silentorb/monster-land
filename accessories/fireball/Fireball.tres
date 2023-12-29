@@ -14,4 +14,4 @@ missileSpeed = 200.0
 [resource]
 script = ExtResource("1_qas57")
 cooldown = 1.0
-effects = Array[Resource]([SubResource("Resource_n27pa")])
+effects = [SubResource("Resource_n27pa")]

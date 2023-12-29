@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using Godot;
-using MonsterLand.simulation.ai;
+using monsterland.simulation.accessories;
+using monsterland.simulation.characters;
 
-namespace MonsterLand;
+namespace monsterland.simulation.ai;
 
-public partial class AiController : simulation.characters.CharacterController {
+public partial class AiController : CharacterController {
   private float directionTimer = 1;
   public float directionDuration = 1;
   private float actionChance = 0;
