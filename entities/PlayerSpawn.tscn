@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci6bipd5ih1k8"]
+[gd_scene load_steps=6 format=3 uid="uid://ci6bipd5ih1k8"]
 
 [ext_resource type="Script" path="res://src/simulation/entities/PlayerSpawn.cs" id="1_crghk"]
 [ext_resource type="PackedScene" uid="uid://b5x5usww81ujm" path="res://framework/Character.tscn" id="2_p18e3"]
 [ext_resource type="Resource" uid="uid://dmoxhi2ujh173" path="res://entities/characters/TestMonster2.tres" id="3_jxxj5"]
 [ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="4_bxjqv"]
+[ext_resource type="Script" path="res://src/editing/EditorOnly.cs" id="5_ybxff"]
 
 [node name="PlayerSpawn" type="Node2D"]
 script = ExtResource("1_crghk")
@@ -13,3 +14,4 @@ defaultDefinition = ExtResource("3_jxxj5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_bxjqv")
 frame = 745
+script = ExtResource("5_ybxff")

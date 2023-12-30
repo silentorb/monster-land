@@ -28,6 +28,11 @@ public partial class Character : CharacterBody2D, Damageable {
     setSpriteFrame(definition.sprite);
   }
 
+  public void initialize(CharacterDefinition newDefinition) {
+    definition = newDefinition;
+    health = definition.health;
+  }
+
   public override void _Ready() {
     base._Ready();
     sprite = GetNode<AnimatedSprite2D>("Sprite");
@@ -68,6 +73,8 @@ public partial class Character : CharacterBody2D, Damageable {
   void die() {
     health = 0;
     setSpriteFrame(GD.RandRange(3, 7));
+    if (faction != 0)
+      QueueFree();
   }
 
   public void damage(ref Damage damage) {

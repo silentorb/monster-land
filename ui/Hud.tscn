@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2khqbr3l4guf"]
+
+[ext_resource type="PackedScene" uid="uid://b4o6floxraexw" path="res://ui/CharacterStatus.tscn" id="1_yijst"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = 478.0
+offset_right = 1280.0
+offset_bottom = 641.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="CharacterStatus1" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_yijst")]
+layout_mode = 2
+playerId = 1
+
+[node name="CharacterStatus2" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_yijst")]
+layout_mode = 2
+playerId = 2
+
+[node name="CharacterStatus3" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_yijst")]
+layout_mode = 2
+playerId = 3
+
+[node name="CharacterStatus4" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_yijst")]
+layout_mode = 2
+playerId = 4

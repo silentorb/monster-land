@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Godot;
 
 namespace monsterland.simulation.accessories; 
 
-public partial class Accessory : GodotObject {
+public class Accessory {
   public AccessoryDefinition definition;
   public float cooldown;
 
@@ -15,7 +16,7 @@ public partial class Accessory : GodotObject {
   }
 
   public bool canUse() {
-    return cooldown <= 0;
+    return cooldown <= 0 && definition.effects.Any();
   }
 
   public bool tryActivate(ref AccessoryActivation activation) {

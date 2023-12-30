@@ -23,7 +23,7 @@ public enum InputSourceMode : uint {
   justReleased = 0,
   justPressed = 1,
   released = 2,
-  pressed = 4,
+  pressed = 3,
 }
 
 public enum JoyAxisDirection {
@@ -48,7 +48,7 @@ public class DeviceState {
   }
 }
 
-public partial class InputManager : GodotObject {
+public class InputManager {
   // public readonly Dictionary<DeviceId, PlayerId> devicePlayerMap = new();
   public readonly Dictionary<string, List<InputSource>> inputMap = new();
 
@@ -59,7 +59,7 @@ public partial class InputManager : GodotObject {
     foreach (var action in InputMap.GetActions()) {
       var list = new List<InputSource>();
       var events = InputMap.ActionGetEvents(action);
-      
+
       foreach (var e in events) {
         switch (e) {
           case InputEventJoypadButton joyEvent:
@@ -197,22 +197,42 @@ public partial class InputManager : GodotObject {
     return false;
   }
 
+  static void checkKeyboardHalfAxis(List<object> inputs, ref float result, ref float absResult, int vector) {
+    foreach (var input in inputs) {
+      if (input is Key key) {
+        var value = Input.IsKeyPressed(key) ? vector : 0;
+        var absValue = Math.Abs(value);
+        if (absValue > absResult) {
+          result = value;
+          absResult = absValue;
+        }
+      }
+    }
+  }
+
   public float getAxis(PlayerId player,
     StringName negative, StringName positive) {
     var result = 0f;
     var absResult = 0f;
     if (playerDevices.TryGetValue(player, out var devices)) {
-      if (inputMap.TryGetValue(negative, out var inputs)) {
-        foreach (var device in devices) {
-          foreach (var input in inputs) {
-            var value = input switch {
-              JoyAxisDirection axisDirection => Input.GetJoyAxis(device.id, (JoyAxis)((int)axisDirection & 0xF)),
-              _ => 0
-            };
-            var absValue = Math.Abs(value);
-            if (absValue > absResult) {
-              result = value;
-              absResult = absValue;
+      if (inputMap.TryGetValue(negative, out var negativeInputs)) {
+        if (inputMap.TryGetValue(positive, out var positiveInputs)) {
+          foreach (var device in devices) {
+            if (device.id == InputConstants.KeyboardMouseDevice) {
+              checkKeyboardHalfAxis(negativeInputs, ref result, ref absResult, -1);
+              checkKeyboardHalfAxis(positiveInputs, ref result, ref absResult, 1);
+            }
+            else {
+              foreach (var input in negativeInputs) {
+                if (input is JoyAxisDirection) {
+                  var value = Input.GetJoyAxis(device.id, (JoyAxis)((int)input & 0xF));
+                  var absValue = Math.Abs(value);
+                  if (absValue > absResult) {
+                    result = value;
+                    absResult = absValue;
+                  }
+                }
+              }
             }
           }
         }

@@ -9,7 +9,6 @@ public partial class AttackEffect : AccessoryEffect {
   [Export] public DamageType damageType;
   [Export] public PackedScene spawnable;
   [Export] public float missileSpeed;
-  [Export] public float range = 64;
 
   public override void activate(ref AccessoryActivation activation) {
     if (spawnable?.Instantiate() is Missile missile) {

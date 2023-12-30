@@ -1,5 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnccq8fgy7e4j"]
+[gd_scene load_steps=9 format=3 uid="uid://bnccq8fgy7e4j"]
 
+[ext_resource type="Script" path="res://src/simulation/general/GameLevel.cs" id="1_tl484"]
+[ext_resource type="Resource" uid="uid://d13ilciposnkr" path="res://framework/DefaultGameMode.tres" id="2_8f26k"]
 [ext_resource type="PackedScene" uid="uid://b5x5usww81ujm" path="res://framework/Character.tscn" id="2_46jno"]
 [ext_resource type="TileSet" uid="uid://c5x7u877hldg" path="res://world/world_tiles.tres" id="2_vey3k"]
 [ext_resource type="Script" path="res://src/simulation/ai/AiController.cs" id="5_avg68"]
@@ -8,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cb0l2taaqylgp" path="res://entities/MonsterSpawn.tscn" id="6_dmtmj"]
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_tl484")
+mode = ExtResource("2_8f26k")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -38,6 +42,15 @@ script = ExtResource("5_avg68")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_yj53k")]
 position = Vector2(267, 191)
+
+[node name="PlayerSpawn2" parent="." instance=ExtResource("5_yj53k")]
+position = Vector2(270, 224)
+
+[node name="PlayerSpawn3" parent="." instance=ExtResource("5_yj53k")]
+position = Vector2(318, 190)
+
+[node name="PlayerSpawn4" parent="." instance=ExtResource("5_yj53k")]
+position = Vector2(321, 224)
 
 [node name="MonsterSpawn" parent="." instance=ExtResource("6_dmtmj")]
 position = Vector2(952, 249)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using monsterland.client.input;
@@ -74,6 +75,7 @@ public partial class LobbyView : Control {
   public void checkReady(InputManager inputManager) {
     foreach (var (player, _) in inputManager.playerDevices) {
       if (inputManager.isJustPressed(player, "ui_ready")) {
+        inputManager.isJustPressed(player, "ui_ready");
         var view = getViewByPlayerId(player);
         if (view != null && view.mode != NewPlayerMode.inactive) {
           view.setReady(view.mode == NewPlayerMode.notReady);

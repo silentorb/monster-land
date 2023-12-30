@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4o6floxraexw"]
+
+[ext_resource type="Script" path="res://src/client/ui/views/CharacterStatusView.cs" id="1_jvh0a"]
+[ext_resource type="Script" path="res://src/client/ui/views/HealthView.cs" id="2_t6007"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvaja"]
+bg_color = Color(0.721569, 0.129412, 0.129412, 1)
+
+[node name="CharacterStatus" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jvh0a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="health" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_t6007")
+
+[node name="bar" type="Panel" parent="MarginContainer/VBoxContainer/health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvaja")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0

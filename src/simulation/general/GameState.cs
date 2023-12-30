@@ -29,6 +29,10 @@ public partial class GameState : Node {
     return player;
   }
 
+  public Player getPlayerById(PlayerId id) {
+    return players.FirstOrDefault(p => p.id == id);
+  }
+
   public void removePlayer(PlayerId id) {
     players.RemoveAll(p => p.id == id);
   }

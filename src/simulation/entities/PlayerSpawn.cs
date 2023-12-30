@@ -29,9 +29,12 @@ public partial class PlayerSpawn : Node2D {
       Client.instance.inputManager.connectAvailableDevices(player.id);
     }
 
-    foreach (var player in gameState.players) {
-      player.characterDefinition ??= defaultDefinition;
-      spawnPlayerCharacter(player, Position);
+    {
+      var player = gameState.players.FirstOrDefault(p => p.controller == null);
+      if (player != null) {
+        player.characterDefinition ??= defaultDefinition;
+        spawnPlayerCharacter(player, Position);
+      }
     }
   }
 
