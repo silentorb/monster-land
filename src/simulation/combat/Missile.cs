@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using monsterland.simulation.characters;
+using monsterland.simulation.spatial;
 
 namespace monsterland.simulation.combat;
 
@@ -15,37 +16,36 @@ public partial class Missile : Area2D {
   public delegate void onFinishEventHandler(Character body);
 
   Character getHitCharacter(Array<Node2D> bodies) {
-	foreach (var body in bodies) {
-	  if (body is Character character) {
-		if (character.faction != faction) {
-		  return character;
-		}
-	  }
-	}
+    foreach (var body in bodies) {
+      if (body is Character character) {
+        if (character.faction != faction) {
+          return character;
+        }
+      }
+    }
 
-	return null;
+    return null;
   }
 
   public void finish(Character character) {
-	character?.damage(ref damage);
-	EmitSignal(SignalName.onFinish, character);
-	QueueFree();
+    character?.damage(ref damage);
+    EmitSignal(SignalName.onFinish, character);
+    QueueFree();
   }
 
   public override void _PhysicsProcess(double delta) {
-	var offset = velocity * (float)delta;
-	Translate(offset);
-	distanceTraveled += offset.Length();
+    var offset = velocity * (float)delta;
+    Translate(offset);
+    distanceTraveled += offset.Length();
 
-	base._PhysicsProcess(delta);
+    base._PhysicsProcess(delta);
 
-	if (HasOverlappingBodies()) {
-	  var bodies = GetOverlappingBodies();
-	  var character = getHitCharacter(bodies);
-	  finish(character);
-	}
-	else if (distanceTraveled >= range) {
-	  finish(null);
-	}
+    if (HasOverlappingBodies()) {
+      var character = CollisionUtility.getFirstCollision<Character>(this, c => c.faction != faction);
+      finish(character);
+    }
+    else if (distanceTraveled >= range) {
+      finish(null);
+    }
   }
 }

@@ -13,8 +13,6 @@ public partial class AttackEffect : AccessoryEffect {
 
   public override void activate(ref AccessoryActivation activation) {
     if (spawnable?.Instantiate() is Missile missile) {
-      activation.actor.GetTree().Root.AddChild(missile);
-
       missile.velocity = activation.direction * missileSpeed;
       missile.Position = activation.actor.Position + activation.direction * 32;
       missile.faction = activation.actor.faction;
@@ -24,6 +22,8 @@ public partial class AttackEffect : AccessoryEffect {
         amount = damageAmount,
         type = damageType,
       };
+      
+      activation.actor.GetTree().Root.AddChild(missile);
     }
   }
 }

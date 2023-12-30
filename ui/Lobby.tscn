@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_rgd4t")
-nextScene = "res://world/Arena.tscn"
+nextScene = "res://world/TestArena.tscn"
 
 [node name="players" type="HBoxContainer" parent="."]
 layout_mode = 2

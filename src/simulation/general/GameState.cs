@@ -23,13 +23,25 @@ public partial class GameState : Node {
     base._ExitTree();
   }
 
-  public Player getOrCreateAvailablePlayer() {
-    var available = players.FirstOrDefault(p => p.controller == null);
-    if (available != null) 
-      return available;
-
-    var player = new Player();
+  public Player addPlayer(PlayerId id) {
+    var player = new Player(id);
     players.Add(player);
     return player;
+  }
+
+  public void removePlayer(PlayerId id) {
+    players.RemoveAll(p => p.id == id);
+  }
+
+  public Player getOrCreateAvailablePlayer() {
+    var available = players.FirstOrDefault(p => p.controller == null);
+    if (available != null)
+      return available;
+
+    var nextId = players.Any()
+      ? players.Select(p => p.id).Max() + 1
+      : 1;
+    
+    return addPlayer(nextId);
   }
 }

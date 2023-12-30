@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dl84d441omab1" path="res://accessories/Missile.tscn" id="1_niq3f"]
 
 [node name="Missile" instance=ExtResource("1_niq3f")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(0.9, 0.9)

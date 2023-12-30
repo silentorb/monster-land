@@ -15,12 +15,17 @@ public partial class CharacterController : Node {
     base._PhysicsProcess(delta);
     if (character == null || !character.isAlive())
       return;
-
+      
     if (direction.IsZeroApprox()) {
       character.Velocity = character.Velocity.MoveToward(Vector2.Zero, 10f);
     }
     else {
-      character.Velocity = direction.Normalized() * character.definition.speed;
+      // Limit the direction length
+      if (direction.Length() > 1) {
+        direction = direction.Normalized();
+      }
+      
+      character.Velocity = direction * character.definition.speed;
     }
 
     character.MoveAndSlide();
