@@ -23,14 +23,13 @@ public partial class PlayerSpawn : Node2D {
   }
 
   void checkSpawm() {
-    var gameState = GameState.instance;
-    if (!gameState.players.Any()) {
-      var player = gameState.getOrCreateAvailablePlayer();
+    if (!Global.instance.players.Any()) {
+      var player = Global.instance.getOrCreateAvailablePlayer();
       Client.instance.inputManager.connectAvailableDevices(player.id);
     }
 
     {
-      var player = gameState.players.FirstOrDefault(p => p.controller == null);
+      var player = Global.instance.players.FirstOrDefault(p => p.controller == null);
       if (player != null) {
         player.characterDefinition ??= defaultDefinition;
         spawnPlayerCharacter(player, Position);

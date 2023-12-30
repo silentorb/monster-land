@@ -16,7 +16,7 @@ public partial class CharacterStatusView : Control {
   public override void _Process(double delta) {
     base._Process(delta);
     if (player == null) {
-      player = GameState.instance.getPlayerById(playerId);
+      player = Global.instance.getPlayerById(playerId);
       if (player != null) {
         if (healthView != null) {
           healthView.player = player;

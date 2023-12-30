@@ -37,7 +37,7 @@ public partial class Character : CharacterBody2D, Damageable {
     base._Ready();
     sprite = GetNode<AnimatedSprite2D>("Sprite");
     initializeSprite();
-    GameState.instance?.characters.Add(this);
+    Global.instance.state?.characters.Add(this);
     if (definition != null) {
       foreach (var accessoryDefinition in definition.accessories) {
         var accessory = new Accessory { definition = accessoryDefinition };
@@ -47,7 +47,7 @@ public partial class Character : CharacterBody2D, Damageable {
   }
 
   public override void _ExitTree() {
-    GameState.instance?.characters.Remove(this);
+    Global.instance.state?.characters.Remove(this);
     base._ExitTree();
   }
 

@@ -6,3 +6,4 @@
 [resource]
 script = ExtResource("2_h73s0")
 hud = ExtResource("1_kehcd")
+firstLevel = "res://world/Arena.tscn"

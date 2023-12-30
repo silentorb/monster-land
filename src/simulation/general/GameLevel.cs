@@ -7,8 +7,9 @@ public partial class GameLevel : Node {
 
   public override void _Ready() {
     base._Ready();
-    
-    if (mode?.hud != null) {
+    Global.instance?.setModeIfUnset(mode);
+
+    if (Global.instance?.mode?.hud != null) {
       var hud = mode.hud.Instantiate();
       GetTree().Root.CallDeferred("add_child", hud);
     }

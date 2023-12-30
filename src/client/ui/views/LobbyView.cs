@@ -9,10 +9,11 @@ namespace monsterland.client.ui.views;
 
 public partial class LobbyView : Control {
   public readonly List<NewPlayerView> playerViews = new();
-  [Export(PropertyHint.File)] public string nextScene;
+  [Export] public GameMode mode;
 
   public override void _Ready() {
     base._Ready();
+    Global.instance?.setModeIfUnset(mode); 
     var container = GetNode<Container>("players");
     if (container != null) {
       var children = container.GetChildren().OfType<NewPlayerView>();
@@ -28,14 +29,14 @@ public partial class LobbyView : Control {
     var player = inputManager.connectDevice(device);
     if (player != InputConstants.noPlayer) {
       getViewByPlayerId(player)?.activate();
-      GameState.instance.addPlayer(player);
+      Global.instance.addPlayer(player);
     }
   }
 
   public void removePlayer(InputManager inputManager, PlayerId player) {
     inputManager.disconnectPlayer(player);
     getViewByPlayerId(player)?.deactivate();
-    GameState.instance.removePlayer(player);
+    Global.instance.removePlayer(player);
   }
 
   public void checkJoiningForDevice(InputManager inputManager, DeviceId device) {
@@ -69,7 +70,7 @@ public partial class LobbyView : Control {
   }
 
   public void startGame() {
-    GetTree().ChangeSceneToFile(nextScene);
+    Global.instance.startGame();
   }
 
   public void checkReady(InputManager inputManager) {

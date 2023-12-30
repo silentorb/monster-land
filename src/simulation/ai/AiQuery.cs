@@ -8,7 +8,7 @@ namespace monsterland.simulation.ai;
 
 public static class AiQuery {
   public static Character getNearestEnemy(Character character, float range) {
-    var characters = GameState.instance.characters;
+    var characters = Global.instance.state.characters;
     var nearestDistance = float.MaxValue - 1;
     Character nearest = null;
     var faction = character.faction;
@@ -25,7 +25,7 @@ public static class AiQuery {
   }
   
   public static Character getRandomEnemy(Character character, float range) {
-    var characters = GameState.instance.characters;
+    var characters = Global.instance.state.characters;
     var faction = character.faction;
     const int maxSize = 64;
     Span<int> buffer = stackalloc int[maxSize];

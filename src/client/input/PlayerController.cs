@@ -33,7 +33,7 @@ public partial class PlayerController : CharacterController {
   public override void _Ready() {
     base._Ready();
     if (player == null) {
-      connectPlayer(GameState.instance?.getOrCreateAvailablePlayer());
+      connectPlayer(Global.instance?.getOrCreateAvailablePlayer());
     }
   }
 

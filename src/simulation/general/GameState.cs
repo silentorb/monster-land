@@ -5,47 +5,44 @@ using monsterland.simulation.characters;
 
 namespace monsterland.simulation.general;
 
-public partial class GameState : Node {
-  public static GameState instance { get; private set; }
+public class GameState {
   public readonly List<Character> characters = new();
-  public readonly List<Player> players = new();
+  public GameMode mode;
+  private float restartTimer;
+  private bool isRestarting = false;
 
-  public override void _Ready() {
-    base._Ready();
-    instance = this;
+  public GameState(GameMode newMode) {
+    mode = newMode;
   }
 
-  public override void _ExitTree() {
-    if (instance == this) {
-      instance = null;
+  void startRestart() {
+    isRestarting = true;
+    restartTimer = mode.restartTimerDuration;
+  }
+
+  public bool areAllPlayersDead() {
+    // Filter out players without active characters
+    var activePlayers = Global.instance.players.AsEnumerable()
+      .Select(p => p?.controller?.character)
+      .Where(p => p != null);
+
+    // Multiple enumerations are fine in this case.
+    // It is a small set and more performant than allocating a List.
+    // A stack allocation may be slightly faster but not worth the added complexity.
+    return activePlayers.Any() && activePlayers.All(c => !c.isAlive());
+  }
+
+  public void update(float delta) {
+    if (isRestarting) {
+      restartTimer -= delta;
+      if (restartTimer <= 0) {
+        restartTimer = 0;
+        isRestarting = false;
+        Global.instance.startGame();
+      }
     }
-
-    base._ExitTree();
-  }
-
-  public Player addPlayer(PlayerId id) {
-    var player = new Player(id);
-    players.Add(player);
-    return player;
-  }
-
-  public Player getPlayerById(PlayerId id) {
-    return players.FirstOrDefault(p => p.id == id);
-  }
-
-  public void removePlayer(PlayerId id) {
-    players.RemoveAll(p => p.id == id);
-  }
-
-  public Player getOrCreateAvailablePlayer() {
-    var available = players.FirstOrDefault(p => p.controller == null);
-    if (available != null)
-      return available;
-
-    var nextId = players.Any()
-      ? players.Select(p => p.id).Max() + 1
-      : 1;
-    
-    return addPlayer(nextId);
+    else if (areAllPlayersDead()) {
+      startRestart();
+    }
   }
 }

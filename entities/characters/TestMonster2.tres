@@ -8,3 +8,4 @@ script = ExtResource("1_um4kt")
 sprite = 108
 speed = 100.0
 accessories = [ExtResource("1_ue1qy")]
+health = 100
