@@ -22,7 +22,7 @@ public partial class AttackEffect : AccessoryEffect {
         type = damageType,
       };
       
-      activation.actor.GetTree().Root.AddChild(missile);
+      activation.actor.GetTree().CurrentScene.AddChild(missile);
     }
   }
 }

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AccessoryDefinition" load_steps=5 format=3 uid="uid://bsk5c8ql27ujb"]
+
+[ext_resource type="Script" path="res://src/simulation/combat/AttackEffect.cs" id="1_vvml2"]
+[ext_resource type="PackedScene" uid="uid://da6lj1daqk25d" path="res://accessories/fireball/Fireball.tscn" id="2_21f6r"]
+[ext_resource type="Script" path="res://src/simulation/accessories/AccessoryDefinition.cs" id="3_vopxa"]
+
+[sub_resource type="Resource" id="Resource_n27pa"]
+script = ExtResource("1_vvml2")
+damageAmount = 40
+damageType = 1
+spawnable = ExtResource("2_21f6r")
+missileSpeed = 200.0
+range = 100.0
+
+[resource]
+script = ExtResource("3_vopxa")
+cooldown = 1.0
+effects = [SubResource("Resource_n27pa")]

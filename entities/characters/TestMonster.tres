@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="CharacterDefinition" load_steps=2 format=3 uid="uid://dhwkeqjh8tboi"]
-
-[ext_resource type="Script" path="res://framework/CharacterDefinition.gd" id="1_88p7p"]
-
-[resource]
-script = ExtResource("1_88p7p")
-accessories = []
-sprite = 108

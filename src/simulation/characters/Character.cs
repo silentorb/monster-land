@@ -20,7 +20,7 @@ public partial class Character : CharacterBody2D, Damageable {
       sprite.Frame = frame;
     }
   }
-  
+
   public void initializeSprite() {
     if (definition == null)
       return;
@@ -37,17 +37,22 @@ public partial class Character : CharacterBody2D, Damageable {
     base._Ready();
     sprite = GetNode<AnimatedSprite2D>("Sprite");
     initializeSprite();
-    Global.instance.state?.characters.Add(this);
-    if (definition != null) {
-      foreach (var accessoryDefinition in definition.accessories) {
-        var accessory = new Accessory { definition = accessoryDefinition };
-        accessories.Add(accessory);
+    if (Global.instance != null) {
+      Global.instance.state?.characters.Add(this);
+      if (definition != null) {
+        foreach (var accessoryDefinition in definition.accessories) {
+          var accessory = new Accessory { definition = accessoryDefinition };
+          accessories.Add(accessory);
+        }
       }
     }
   }
 
   public override void _ExitTree() {
-    Global.instance.state?.characters.Remove(this);
+    if (Global.instance != null) {
+      Global.instance.state?.characters.Remove(this);
+    }
+
     base._ExitTree();
   }
 
@@ -80,7 +85,7 @@ public partial class Character : CharacterBody2D, Damageable {
   public void damage(ref Damage damage) {
     if (!isAlive())
       return;
-    
+
     health = Mathf.Max(0, health - damage.amount);
 
     if (!isAlive()) {

@@ -11,7 +11,7 @@ public partial class GameLevel : Node {
 
     if (Global.instance?.mode?.hud != null) {
       var hud = mode.hud.Instantiate();
-      GetTree().Root.CallDeferred("add_child", hud);
+      GetTree().CurrentScene.CallDeferred("add_child", hud);
     }
   }
 }

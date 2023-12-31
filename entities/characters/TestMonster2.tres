@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterDefinition" load_steps=3 format=3 uid="uid://dmoxhi2ujh173"]
 
-[ext_resource type="Resource" uid="uid://bsk5c8ql27ujb" path="res://accessories/fireball/Fireball.tres" id="1_ue1qy"]
+[ext_resource type="Resource" uid="uid://bsk5c8ql27ujb" path="res://accessories/fireball/FireballWeak.tres" id="1_ue1qy"]
 [ext_resource type="Script" path="res://src/simulation/characters/CharacterDefinition.cs" id="1_um4kt"]
 
 [resource]

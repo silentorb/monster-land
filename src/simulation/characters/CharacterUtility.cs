@@ -10,7 +10,7 @@ public static class CharacterUtility {
       character.Position = position;
       character.AddChild(controller);
       // tree.Root.AddChild(character);
-      tree.Root.CallDeferred("add_child", character);
+      tree.CurrentScene.CallDeferred("add_child", character);
       return character;
     }
 

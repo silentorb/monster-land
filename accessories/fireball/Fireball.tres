@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AccessoryDefinition" load_steps=5 format=3 uid="uid://bsk5c8ql27ujb"]
+[gd_resource type="Resource" script_class="AccessoryDefinition" load_steps=5 format=3 uid="uid://d02hnq8c5vm3"]
 
 [ext_resource type="Script" path="res://src/simulation/combat/AttackEffect.cs" id="1_emxi5"]
 [ext_resource type="Script" path="res://src/simulation/accessories/AccessoryDefinition.cs" id="1_qas57"]
@@ -10,7 +10,7 @@ damageAmount = 60
 damageType = 1
 spawnable = ExtResource("2_x13gy")
 missileSpeed = 200.0
-range = 128.0
+range = 200.0
 
 [resource]
 script = ExtResource("1_qas57")
