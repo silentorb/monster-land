@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterDefinition" load_steps=3 format=3 uid="uid://c3dcixcfx6pc"]
+
+[ext_resource type="Resource" uid="uid://d02hnq8c5vm3" path="res://accessories/fireball/Fireball.tres" id="1_uheq4"]
+[ext_resource type="Script" path="res://src/simulation/characters/CharacterDefinition.cs" id="2_2nfjj"]
+
+[resource]
+script = ExtResource("2_2nfjj")
+sprite = 76
+speed = 100.0
+accessories = [ExtResource("1_uheq4")]
+health = 100

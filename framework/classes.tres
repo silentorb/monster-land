@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ClassList" load_steps=3 format=3 uid="uid://dpdetbqgim2fi"]
+
+[ext_resource type="Script" path="res://src/simulation/characters/ClassList.cs" id="1_d16n4"]
+[ext_resource type="Resource" uid="uid://b42wkmxpp87xx" path="res://entities/characters/Wizard.tres" id="1_iv6p2"]
+
+[resource]
+script = ExtResource("1_d16n4")
+classes = [ExtResource("1_iv6p2")]

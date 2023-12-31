@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="GameMode" load_steps=3 format=3 uid="uid://d13ilciposnkr"]
+[gd_resource type="Resource" script_class="GameMode" load_steps=4 format=3 uid="uid://d13ilciposnkr"]
 
+[ext_resource type="Resource" uid="uid://dpdetbqgim2fi" path="res://framework/classes.tres" id="1_acmh7"]
 [ext_resource type="PackedScene" uid="uid://b2khqbr3l4guf" path="res://ui/Hud.tscn" id="1_kehcd"]
 [ext_resource type="Script" path="res://src/simulation/general/GameMode.cs" id="2_h73s0"]
 
@@ -8,3 +9,4 @@ script = ExtResource("2_h73s0")
 hud = ExtResource("1_kehcd")
 firstLevel = "res://world/Arena1.tscn"
 restartTimerDuration = 5.0
+classes = ExtResource("1_acmh7")

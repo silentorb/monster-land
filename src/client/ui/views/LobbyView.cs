@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using monsterland.client.input;
@@ -33,12 +32,6 @@ public partial class LobbyView : Control {
     }
   }
 
-  public void removePlayer(InputManager inputManager, PlayerId player) {
-    inputManager.disconnectPlayer(player);
-    getViewByPlayerId(player)?.deactivate();
-    Global.instance.removePlayer(player);
-  }
-
   public void checkJoiningForDevice(InputManager inputManager, DeviceId device) {
     if (!inputManager.isDeviceConnectedToPlayer(device) &&
         inputManager.isDeviceInputPressed(device, "ui_join")) {
@@ -55,15 +48,6 @@ public partial class LobbyView : Control {
     }
   }
 
-  public void checkLeaving(InputManager inputManager) {
-    foreach (var (player, _) in inputManager.playerDevices) {
-      if (inputManager.isJustPressed(player, "ui_cancel") &&
-          getViewByPlayerId(player)?.mode == NewPlayerMode.notReady) {
-        removePlayer(inputManager, player);
-      }
-    }
-  }
-
   public bool isReady() {
     return playerViews.Any(v => v.mode == NewPlayerMode.ready) &&
            playerViews.All(v => v.mode != NewPlayerMode.notReady);
@@ -73,36 +57,14 @@ public partial class LobbyView : Control {
     Global.instance.startGame();
   }
 
-  public void checkReady(InputManager inputManager) {
-    foreach (var (player, _) in inputManager.playerDevices) {
-      if (inputManager.isJustPressed(player, "ui_ready")) {
-        inputManager.isJustPressed(player, "ui_ready");
-        var view = getViewByPlayerId(player);
-        if (view != null && view.mode != NewPlayerMode.inactive) {
-          view.setReady(view.mode == NewPlayerMode.notReady);
-        }
-      }
-      else if (inputManager.isJustPressed(player, "ui_cancel")) {
-        var view = getViewByPlayerId(player);
-        if (view.mode == NewPlayerMode.ready) {
-          view.setReady(false);
-        }
-      }
-    }
-
-    if (isReady()) {
-      startGame();
-    }
-  }
-
   public override void _Process(double delta) {
     base._Process(delta);
     var inputManager = Client.instance?.inputManager;
     if (inputManager != null) {
-      // The order of these is important.
-      // Some UI events will bleed over if the order is changed.
-      checkReady(inputManager);
-      checkLeaving(inputManager);
+      if (isReady()) {
+        startGame();
+      }
+      
       checkJoining(inputManager);
     }
   }
