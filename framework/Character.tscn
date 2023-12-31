@@ -11,9 +11,10 @@ platform_on_leave = 2
 platform_floor_layers = 4294901760
 script = ExtResource("1_vv8h0")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 3
 sprite_frames = ExtResource("1_8tcxo")
 frame = 100
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_138y3")

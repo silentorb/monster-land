@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt2jyv1bqh0f1"]
+
+[ext_resource type="Script" path="res://src/simulation/general/GameLevel.cs" id="1_oki53"]
+[ext_resource type="Resource" uid="uid://d13ilciposnkr" path="res://framework/DefaultGameMode.tres" id="2_bh5ng"]
+[ext_resource type="TileSet" uid="uid://c5x7u877hldg" path="res://world/world_tiles.tres" id="3_rv4yo"]
+[ext_resource type="PackedScene" uid="uid://ci6bipd5ih1k8" path="res://entities/PlayerSpawn.tscn" id="4_dwoo2"]
+[ext_resource type="PackedScene" uid="uid://cb0l2taaqylgp" path="res://entities/MonsterSpawn.tscn" id="5_4rmdh"]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_oki53")
+mode = ExtResource("2_bh5ng")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = ExtResource("3_rv4yo")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 131072, 0, 5, 196608, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 10, 0, 5, 11, 0, 5, 12, 0, 5, 13, 0, 5, 14, 0, 5, 15, 0, 5, 16, 0, 5, 17, 0, 5, 18, 0, 5, 19, 0, 5, 20, 0, 5, 21, 0, 5, 22, 0, 5, 23, 0, 5, 24, 0, 5, 25, 0, 5, 26, 0, 5, 27, 0, 5, 28, 0, 5, 29, 0, 5, 30, 0, 5, 31, 0, 5, 32, 0, 5, 33, 0, 5, 34, 0, 5, 35, 0, 5, 36, 0, 5, 37, 0, 5, 38, 0, 5, 39, 0, 5, 65575, 0, 5, 131111, 0, 5, 196647, 0, 5, 262183, 0, 5, 327719, 0, 5, 393255, 0, 5, 458791, 0, 5, 524327, 0, 5, 589863, 0, 5, 655399, 0, 5, 720935, 0, 5, 786471, 0, 5, 852007, 0, 5, 917543, 0, 5, 917504, 0, 5, 851968, 0, 5, 786432, 0, 5, 720896, 0, 5, 655360, 0, 5, 589824, 0, 5, 524288, 0, 5, 458752, 0, 5, 393216, 0, 5, 327680, 0, 5, 262144, 0, 5, 917505, 0, 5, 917506, 0, 5, 917507, 0, 5, 917508, 0, 5, 917509, 0, 5, 917510, 0, 5, 917511, 0, 5, 917512, 0, 5, 917513, 0, 5, 917514, 0, 5, 917515, 0, 5, 917516, 0, 5, 917517, 0, 5, 917518, 0, 5, 917519, 0, 5, 917520, 0, 5, 917521, 0, 5, 917522, 0, 5, 917523, 0, 5, 917524, 0, 5, 917525, 0, 5, 917526, 0, 5, 917527, 0, 5, 917528, 0, 5, 917529, 0, 5, 917530, 0, 5, 917531, 0, 5, 917532, 0, 5, 917533, 0, 5, 917534, 0, 5, 917535, 0, 5, 917536, 0, 5, 917537, 0, 5, 917538, 0, 5, 917539, 0, 5, 917540, 0, 5, 917541, 0, 5, 917542, 0, 5, 655368, 0, 7, 655369, 0, 7, 655370, 0, 7, 655371, 0, 7, 655372, 0, 7, 655373, 0, 7, 655374, 0, 7, 720917, 0, 7, 655381, 0, 7, 589845, 0, 7, 524309, 0, 7, 458773, 0, 7, 458772, 0, 7, 393236, 0, 7, 393235, 0, 7, 393234, 0, 7, 327698, 0, 7, 327697, 0, 7, 327696, 0, 7, 262160, 0, 7, 262159, 0, 7, 393243, 0, 7, 393244, 0, 7, 327708, 0, 7, 327709, 0, 7, 327710, 0, 7, 327711, 0, 7, 327712, 0, 7, 327713, 0, 7, 327714, 0, 7, 393250, 0, 7, 458786, 0, 7, 458785, 0, 7, 524321, 0, 7, 589857, 0, 7, 720923, 0, 7, 655387, 0, 7, 589850, 0, 7, 524314, 0, 7, 524313, 0, 7, 589849, 0, 7, 786456, 0, 7, 851992, 0, 7, 851972, 0, 7, 786436, 0, 7, 720900, 0, 7, 393217, 0, 7, 327681, 0, 7, 327682, 0, 7, 262146, 0, 7, 262147, 0, 7, 65546, 0, 7, 65545, 0, 7, 131081, 0, 7, 65560, 0, 7, 131096, 0, 7, 131097, 0, 7)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_dwoo2")]
+position = Vector2(267, 191)
+
+[node name="PlayerSpawn2" parent="." instance=ExtResource("4_dwoo2")]
+position = Vector2(270, 224)
+
+[node name="PlayerSpawn3" parent="." instance=ExtResource("4_dwoo2")]
+position = Vector2(318, 190)
+
+[node name="PlayerSpawn4" parent="." instance=ExtResource("4_dwoo2")]
+position = Vector2(321, 224)
+
+[node name="MonsterSpawn" parent="." instance=ExtResource("5_4rmdh")]
+position = Vector2(952, 249)
+count = 3

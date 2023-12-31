@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 using monsterland.simulation.accessories;
@@ -14,6 +15,7 @@ public partial class Character : CharacterBody2D, Damageable {
 
   private AnimatedSprite2D sprite;
   public readonly List<Accessory> accessories = new();
+  private CollisionShape2D collision;
 
   public void setSpriteFrame(int frame) {
     if (sprite != null) {
@@ -35,8 +37,12 @@ public partial class Character : CharacterBody2D, Damageable {
 
   public override void _Ready() {
     base._Ready();
-    sprite = GetNode<AnimatedSprite2D>("Sprite");
+    
+    sprite = GetNode<AnimatedSprite2D>("sprite");
+    collision = GetNode<CollisionShape2D>("collision_shape");
+    
     initializeSprite();
+    
     if (Global.instance != null) {
       Global.instance.state?.characters.Add(this);
       if (definition != null) {
@@ -75,11 +81,17 @@ public partial class Character : CharacterBody2D, Damageable {
     return health > 0;
   }
 
+  public void modifyHealth(int mod) {
+    health = Math.Max(0, Math.Min(definition.health, health + mod));
+  }
+
   void die() {
     health = 0;
     setSpriteFrame(GD.RandRange(3, 7));
-    if (faction != 0)
-      QueueFree();
+    collision.Disabled = true;
+    sprite.ZIndex = 1;
+    // if (faction != 0)
+    // QueueFree();
   }
 
   public void damage(ref Damage damage) {

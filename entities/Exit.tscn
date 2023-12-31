@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlnmvmu66xusn"]
+
+[ext_resource type="Script" path="res://src/simulation/entities/Exit.cs" id="1_5a5v5"]
+[ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="4_sqmll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iash"]
+size = Vector2(29, 28)
+
+[node name="Exit" type="Area2D"]
+script = ExtResource("1_5a5v5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("4_sqmll")
+frame = 1001
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_1iash")

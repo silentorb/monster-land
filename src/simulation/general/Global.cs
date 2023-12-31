@@ -10,14 +10,17 @@ public partial class Global : Node {
   public GameMode mode;
   public readonly List<Player> players = new();
 
-  public void resetGame() {
+  public void resetPlayers() {
     foreach (var player in players) {
       player.controller = null;
     }
-    
+  }
+
+  public void resetGame() {
+    resetPlayers();
     state = new GameState(mode);
   }
-  
+
   public override void _Ready() {
     base._Ready();
     instance = this;
@@ -30,9 +33,14 @@ public partial class Global : Node {
 
     base._ExitTree();
   }
-  
+
   public void setModeIfUnset(GameMode newMode) {
     mode ??= newMode;
+  }
+
+  public void travel(string scenePath) {
+    resetPlayers();
+    GetTree().ChangeSceneToFile(scenePath);
   }
 
   public void startGame() {
@@ -44,7 +52,7 @@ public partial class Global : Node {
     base._PhysicsProcess(delta);
     state?.update((float)delta);
   }
-  
+
   public Player addPlayer(PlayerId id) {
     var player = new Player(id);
     players.Add(player);
@@ -70,5 +78,4 @@ public partial class Global : Node {
 
     return addPlayer(nextId);
   }
-
 }
