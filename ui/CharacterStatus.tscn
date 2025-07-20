@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4o6floxraexw"]
 
-[ext_resource type="Script" path="res://src/client/ui/views/CharacterStatusView.cs" id="1_jvh0a"]
-[ext_resource type="Script" path="res://src/client/ui/views/HealthView.cs" id="2_t6007"]
+[ext_resource type="Script" uid="uid://bt7eswrsmepot" path="res://src/client/ui/views/CharacterStatusView.cs" id="1_jvh0a"]
+[ext_resource type="Script" uid="uid://c2d7pdfk4lfi2" path="res://src/client/ui/views/HealthView.cs" id="2_t6007"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvaja"]
 bg_color = Color(0.721569, 0.129412, 0.129412, 1)

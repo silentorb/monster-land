@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cckq1xmxh4pbr"]
 
-[ext_resource type="Script" path="res://src/client/ui/views/NewPlayerView.cs" id="1_w6kps"]
-[ext_resource type="Script" path="res://src/client/ui/utility/Node2DContainer.cs" id="2_2sj3y"]
+[ext_resource type="Script" uid="uid://d0fxvhxqlxvts" path="res://src/client/ui/views/NewPlayerView.cs" id="1_w6kps"]
+[ext_resource type="Script" uid="uid://b87anlgo25sdq" path="res://src/client/ui/utility/Node2DContainer.cs" id="2_2sj3y"]
 [ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="2_5ln72"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2rro"]

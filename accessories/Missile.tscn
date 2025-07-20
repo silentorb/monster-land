@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl84d441omab1"]
 
 [ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="1_ro3mu"]
-[ext_resource type="Script" path="res://src/simulation/combat/Missile.cs" id="1_usvwa"]
+[ext_resource type="Script" uid="uid://c5qw5bp8ngqy1" path="res://src/simulation/combat/Missile.cs" id="1_usvwa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48kem"]
 

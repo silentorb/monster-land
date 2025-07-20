@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dt2jyv1bqh0f1"]
 
-[ext_resource type="Script" path="res://src/simulation/general/GameLevel.cs" id="1_oki53"]
+[ext_resource type="Script" uid="uid://dd8x0te31ktbt" path="res://src/simulation/general/GameLevel.cs" id="1_oki53"]
 [ext_resource type="Resource" uid="uid://d13ilciposnkr" path="res://framework/DefaultGameMode.tres" id="2_bh5ng"]
 [ext_resource type="TileSet" uid="uid://c5x7u877hldg" path="res://world/world_tiles.tres" id="3_rv4yo"]
 [ext_resource type="PackedScene" uid="uid://ci6bipd5ih1k8" path="res://entities/PlayerSpawn.tscn" id="4_dwoo2"]

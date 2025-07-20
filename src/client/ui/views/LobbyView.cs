@@ -27,8 +27,8 @@ public partial class LobbyView : Control {
   public void addPlayer(InputManager inputManager, DeviceId device) {
     var player = inputManager.connectDevice(device);
     if (player != InputConstants.noPlayer) {
-      getViewByPlayerId(player)?.activate();
       Global.instance.addPlayer(player);
+      getViewByPlayerId(player)?.activate();
     }
   }
 

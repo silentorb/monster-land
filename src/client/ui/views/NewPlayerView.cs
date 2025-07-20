@@ -21,13 +21,14 @@ public partial class NewPlayerView : Control {
   private Control inactivePanel;
   private Label statusLabel;
   private int classIndex = 0;
+  private Player player;
 
   public override void _Ready() {
     base._Ready();
-    
+
     activePanel = GetNode<Control>("active_panel");
     inactivePanel = GetNode<Control>("inactive_panel");
-    classSprite =(AnimatedSprite2D) FindChild("class_sprite");
+    classSprite = (AnimatedSprite2D)FindChild("class_sprite");
     var k = FindChild("class_sprite");
     if (FindChild("player_name") is Label playerName) {
       playerName.Text = $"Player {playerId}";
@@ -40,6 +41,7 @@ public partial class NewPlayerView : Control {
     activePanel.Visible = true;
     inactivePanel.Visible = false;
     mode = NewPlayerMode.notReady;
+    player = Global.instance.getPlayerById(playerId);
     changeClass(0);
   }
 
@@ -93,7 +95,12 @@ public partial class NewPlayerView : Control {
     var classes = getClasses();
     var classCount = classes.Count;
     classIndex = (classIndex + offset + classCount) % classCount;
-    classSprite.Frame = classes[classIndex].sprite;
+    var currentClass = classes[classIndex];
+    classSprite.Frame = currentClass.sprite;
+    
+    if (player != null) {
+      player.characterDefinition = currentClass;
+    }
   }
 
   private void checkClassChange(InputManager inputManager) {

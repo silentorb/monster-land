@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="ClassList" load_steps=3 format=3 uid="uid://dpdetbqgim2fi"]
+[gd_resource type="Resource" script_class="ClassList" load_steps=5 format=3 uid="uid://dpdetbqgim2fi"]
 
-[ext_resource type="Script" path="res://src/simulation/characters/ClassList.cs" id="1_d16n4"]
+[ext_resource type="Script" uid="uid://bvt0swutd3qtm" path="res://src/simulation/characters/ClassList.cs" id="1_d16n4"]
 [ext_resource type="Resource" uid="uid://b42wkmxpp87xx" path="res://entities/characters/Wizard.tres" id="1_iv6p2"]
+[ext_resource type="Script" uid="uid://bnuyfdts41ye7" path="res://src/simulation/characters/CharacterDefinition.cs" id="1_opk4o"]
+[ext_resource type="Resource" uid="uid://43u5x4lwq6gl" path="res://entities/characters/Cleric.tres" id="3_1dsxk"]
 
 [resource]
 script = ExtResource("1_d16n4")
-classes = [ExtResource("1_iv6p2")]
+classes = Array[ExtResource("1_opk4o")]([ExtResource("1_iv6p2"), ExtResource("3_1dsxk")])

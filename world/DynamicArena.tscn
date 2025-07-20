@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=4 uid="uid://btgd5dfo36wig"]
+
+[ext_resource type="Script" uid="uid://dd8x0te31ktbt" path="res://src/simulation/general/GameLevel.cs" id="1_h1gvb"]
+[ext_resource type="Resource" uid="uid://d13ilciposnkr" path="res://framework/DefaultGameMode.tres" id="2_m0f5g"]
+[ext_resource type="TileSet" uid="uid://c5x7u877hldg" path="res://world/world_tiles.tres" id="3_lxqhp"]
+[ext_resource type="PackedScene" uid="uid://ci6bipd5ih1k8" path="res://entities/PlayerSpawn.tscn" id="4_jo43e"]
+[ext_resource type="PackedScene" uid="uid://cb0l2taaqylgp" path="res://entities/MonsterSpawn.tscn" id="5_mwky1"]
+[ext_resource type="PackedScene" uid="uid://g4w31h4154mp" path="res://entities/HealthPotion.tscn" id="7_l3e2s"]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_h1gvb")
+mode = ExtResource("2_m0f5g")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_jo43e")]
+position = Vector2(267, 191)
+
+[node name="PlayerSpawn2" parent="." instance=ExtResource("4_jo43e")]
+position = Vector2(270, 224)
+
+[node name="PlayerSpawn3" parent="." instance=ExtResource("4_jo43e")]
+position = Vector2(318, 190)
+
+[node name="PlayerSpawn4" parent="." instance=ExtResource("4_jo43e")]
+position = Vector2(321, 224)
+
+[node name="MonsterSpawn" parent="." instance=ExtResource("5_mwky1")]
+position = Vector2(952, 249)
+count = 3
+
+[node name="HealthPotion" parent="." instance=ExtResource("7_l3e2s")]
+position = Vector2(460, 133)
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+use_parent_material = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAEAAAAAAADAAcAAAAFAAAAAAADAAcAAAAGAAAAAAADAAcAAAAHAAAAAAADAAcAAAAIAAAAAAADAAcAAAAJAAAAAAADAAcAAAAKAAAAAAADAAcAAAALAAAAAAADAAcAAAAMAAAAAAADAAcAAAANAAAAAAADAAcAAAAOAAAAAAADAAcAAAAPAAAAAAADAAcAAAAQAAAAAAADAAcAAAARAAAAAAADAAcAAAASAAAAAAADAAcAAAATAAAAAAADAAcAAAAUAAAAAAADAAcAAAAAAAcAAAADAAcAAAAAAAYAAAADAAcAAAAAAAUAAAADAAcAAAAAAAQAAAADAAcAAAAIAAoAAAAAAAcAAAAJAAoAAAAAAAcAAAAKAAoAAAAAAAcAAAALAAoAAAAAAAcAAAAMAAoAAAAAAAcAAAANAAoAAAAAAAcAAAAOAAoAAAAAAAcAAAAGAAwAAAADAAcAAAAHAAwAAAADAAcAAAAIAAwAAAADAAcAAAAJAAwAAAADAAcAAAAKAAwAAAADAAcAAAALAAwAAAADAAcAAAAMAAwAAAADAAcAAAANAAwAAAADAAcAAAAOAAwAAAADAAcAAAAPAAwAAAADAAcAAAAQAAwAAAADAAcAAAARAAwAAAADAAcAAAASAAwAAAADAAcAAAAZAAYAAAADAAcAAAAZAAUAAAADAAcAAAAZAAQAAAADAAcAAAATAAwAAAADAAcAAAAUAAwAAAADAAcAAAAZAAgAAAADAAcAAAAZAAcAAAADAAcAAAABAAQAAAADAAcAAAABAAgAAAADAAcAAAAEAAsAAAADAAcAAAAFAAwAAAADAAcAAAACAAkAAAADAAcAAAAEAAEAAAADAAcAAAACAAMAAAADAAcAAAABAAMAAAADAAcAAAADAAIAAAADAAcAAAADAAoAAAADAAcAAAAEAAwAAAADAAcAAAADAAsAAAADAAcAAAACAAoAAAADAAcAAAABAAkAAAADAAcAAAAAAAgAAAADAAcAAAADAAEAAAADAAcAAAACAAIAAAADAAcAAAAVAAsAAAADAAcAAAAWAAoAAAADAAcAAAAXAAkAAAADAAcAAAAYAAgAAAADAAcAAAAVAAwAAAADAAcAAAAWAAsAAAADAAcAAAAXAAoAAAADAAcAAAAYAAkAAAADAAcAAAAVAAEAAAADAAcAAAAWAAIAAAADAAcAAAAXAAMAAAADAAcAAAAYAAQAAAADAAcAAAAYAAMAAAADAAcAAAAXAAIAAAADAAcAAAAWAAEAAAADAAcAAAAVAAAAAAADAAcAAAA=")
+tile_set = ExtResource("3_lxqhp")

@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 478.0
 offset_right = 1280.0

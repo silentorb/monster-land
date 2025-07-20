@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="AccessoryDefinition" load_steps=5 format=3 uid="uid://d02hnq8c5vm3"]
+[gd_resource type="Resource" script_class="AccessoryDefinition" load_steps=6 format=3 uid="uid://d02hnq8c5vm3"]
 
-[ext_resource type="Script" path="res://src/simulation/combat/AttackEffect.cs" id="1_emxi5"]
-[ext_resource type="Script" path="res://src/simulation/accessories/AccessoryDefinition.cs" id="1_qas57"]
+[ext_resource type="Script" uid="uid://cxp2ofcbgbcl3" path="res://src/simulation/accessories/AccessoryEffect.cs" id="1_4ey8s"]
+[ext_resource type="Script" uid="uid://bboj7k76h2kgv" path="res://src/simulation/combat/AttackEffect.cs" id="1_emxi5"]
+[ext_resource type="Script" uid="uid://bks55jetexch3" path="res://src/simulation/accessories/AccessoryDefinition.cs" id="1_qas57"]
 [ext_resource type="PackedScene" uid="uid://da6lj1daqk25d" path="res://accessories/fireball/Fireball.tscn" id="2_x13gy"]
 
 [sub_resource type="Resource" id="Resource_n27pa"]
@@ -15,4 +16,4 @@ range = 200.0
 [resource]
 script = ExtResource("1_qas57")
 cooldown = 1.0
-effects = [SubResource("Resource_n27pa")]
+effects = Array[ExtResource("1_4ey8s")]([SubResource("Resource_n27pa")])

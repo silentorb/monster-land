@@ -49,10 +49,8 @@ public class DeviceState {
 }
 
 public class InputManager {
-  // public readonly Dictionary<DeviceId, PlayerId> devicePlayerMap = new();
   public readonly Dictionary<string, List<InputSource>> inputMap = new();
 
-  // public readonly Dictionary<DeviceId, DeviceState> deviceStates = new();
   public readonly Dictionary<PlayerId, List<DeviceState>> playerDevices = new();
 
   public void initializeInputMap() {
@@ -137,13 +135,6 @@ public class InputManager {
         updateDeviceState(state);
       }
     }
-
-    // var devices = Input.GetConnectedJoypads();
-    // foreach (var device in devices) {
-    //   if (!deviceStates.ContainsKey(device)) {
-    //     deviceStates.Add(device, newDeviceState(device));
-    //   }
-    // }
   }
 
   public PlayerId connectDevice(DeviceId device) {
@@ -177,9 +168,6 @@ public class InputManager {
     playerDevices.Remove(player);
   }
 
-  // public void disconnectDevice(DeviceId device) {
-  //   devicePlayerMap.Remove(device);
-  // }
   public bool isDeviceInputPressed(DeviceId device, string action) {
     return inputMap.TryGetValue(action, out var inputs) &&
            inputs.Any(input => isPressed(device, input));
@@ -188,9 +176,11 @@ public class InputManager {
   public bool isJustPressed(PlayerId player, string action) {
     if (playerDevices.TryGetValue(player, out var states)) {
       if (inputMap.TryGetValue(action, out var inputs)) {
-        foreach (var state in states) {
-          return inputs.Any(input => state.buttons[input] == InputSourceMode.justPressed);
-        }
+        return states.Any(state =>
+          inputs.Any(input =>
+            state.buttons[input] == InputSourceMode.justPressed
+          )
+        );
       }
     }
 

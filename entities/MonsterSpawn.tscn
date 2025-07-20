@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb0l2taaqylgp"]
 
-[ext_resource type="Script" path="res://src/simulation/entities/MonsterSpawn.cs" id="1_ymlqn"]
+[ext_resource type="Script" uid="uid://kk18p3uixayu" path="res://src/simulation/entities/MonsterSpawn.cs" id="1_ymlqn"]
 [ext_resource type="PackedScene" uid="uid://b5x5usww81ujm" path="res://framework/Character.tscn" id="2_lvkfc"]
 [ext_resource type="Resource" uid="uid://dmoxhi2ujh173" path="res://entities/characters/TestMonster2.tres" id="3_8nxk8"]
 [ext_resource type="SpriteFrames" uid="uid://q1102gkuyiq1" path="res://assets/crawl_sprites.tres" id="4_banlo"]
@@ -12,5 +12,6 @@ definition = ExtResource("3_8nxk8")
 frequency = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("4_banlo")
 frame = 803
